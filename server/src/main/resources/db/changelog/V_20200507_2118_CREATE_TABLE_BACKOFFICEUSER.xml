@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-backofficeuser" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="backofficeuser"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="backofficeuser">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="moderator" type="varchar(1)" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="backofficeuser" columnNames="id" constraintName="backofficeuser_pk"/>
+    </changeSet>
+
+    <changeSet id="add-bu_personid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="bu_personid_fk" foreignKeyTableName="backofficeuser"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="backofficeuser" baseColumnNames="person_id"
+                                 constraintName="bu_personid_fk" referencedTableName="person"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

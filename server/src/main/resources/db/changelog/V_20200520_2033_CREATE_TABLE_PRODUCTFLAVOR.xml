@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-productflavor" author="eduardo.bonam">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="productflavor"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="productflavor">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="flavortype" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="productflavor" columnNames="id" constraintName="productflavor_pk"/>
+    </changeSet>
+    <changeSet id="add-ptfv_productid_fk" author="eduardo.bonam">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptfv_productid_fk" foreignKeyTableName="productflavor"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="productflavor" baseColumnNames="product_id" constraintName="ptfv_productid_fk" referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

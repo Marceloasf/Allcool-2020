@@ -1,0 +1,80 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'org.asciidoctor.convert' version '1.5.8'
+	id 'java'
+	id "org.sonarqube" version "2.8"
+	id 'jacoco'
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+
+tasks.withType(Test) {
+	systemProperty "file.encoding", "UTF-8"
+}
+
+group = 'br.com'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+jacoco {
+	toolVersion = "0.8.5"
+	reportsDir = file('$buildDir/customJacocoReportDir')
+}
+
+sonarqube {
+	properties {
+		property 'sonar.host.url', 'http://163.172.163.181:9000'
+		property 'sonar.login', '608060a332dcfe9f0f7b32f6b56437f4f0ed02b2'
+		property 'sonar.coverage.exclusions', '**/domain/**, **/dto/**,' +
+				 ' **/config/**, **/enum/**, **/AllcoolApplication.java'
+		property 'sonar.cpd.exclusions', '**/domain/**, **/dto/**'
+		property 'sonar.jacoco.reportPath', '${$buildDir/customJacocoReportDir}'
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('snippetsDir', file("build/generated-snippets"))
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+	implementation 'org.liquibase:liquibase-core'
+	compile group: 'com.amazonaws', name: 'aws-java-sdk-core', version: '1.11.804'
+	compile group: 'com.amazonaws', name: 'aws-java-sdk-s3', version: '1.11.804'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation('junit:junit:4.13')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	implementation 'org.apache.commons:commons-lang3'
+}
+
+test {
+	outputs.dir snippetsDir
+}
+
+asciidoctor {
+	inputs.dir snippetsDir
+	dependsOn test
+}

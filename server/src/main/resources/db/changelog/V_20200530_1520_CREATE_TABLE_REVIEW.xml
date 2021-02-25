@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-review" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="review"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="review">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="userclient_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_id" type="uuid"/>
+            <column name="description" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="numeric(10,2)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="review" columnNames="id" constraintName="review_pk"/>
+    </changeSet>
+
+    <changeSet id="add-rv_userclientid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="rv_userclientid_fk" foreignKeyTableName="review"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="review" baseColumnNames="userclient_id"
+                                 constraintName="rv_userclientid_fk" referencedTableName="userclient"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-rv_productid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="rv_productid_fk" foreignKeyTableName="review"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="review" baseColumnNames="product_id"
+                                 constraintName="rv_productid_fk" referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="add-rv_fileid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="rv_fileid_fk" foreignKeyTableName="review"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="review" baseColumnNames="file_id"
+                                 constraintName="rv_fileid_fk" referencedTableName="file"
+                                 referencedColumnNames="id"/>
+
+        </changeSet>
+
+    <changeSet id="create-table-reviewproductflavor" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="reviewproductflavor"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="reviewproductflavor">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="review_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="flavortype" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="reviewproductflavor" columnNames="id" constraintName="reviewproductflavor_pk"/>
+    </changeSet>
+
+    <changeSet id="add-rvpf_reviewid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="rvpf_reviewid_fk" foreignKeyTableName="reviewproductflavor"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="reviewproductflavor" baseColumnNames="review_id"
+                                 constraintName="rvpf_reviewid_fk" referencedTableName="review"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

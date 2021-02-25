@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/allcool_db
+    driverClassName: org.postgresql.Driver
+    username: allcool
+    password: allcool
+    hikari:
+      maximum-pool-size: 2
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        show_sql: true
+  liquibase:
+    contexts: dev
+    parameters:
+      schema: allcool
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 1MB
+s3:
+  credentials:
+    accessKey: SCWFQ105Z1KRPBWD8NGQ
+    secretKey: 930ee515-d107-45f9-b8ab-6cfcc957f245
+  endpoint: https://s3.fr-par.scw.cloud/
+  region: fr-par
+  baseUrl: https://allcool.s3.fr-par.scw.cloud/

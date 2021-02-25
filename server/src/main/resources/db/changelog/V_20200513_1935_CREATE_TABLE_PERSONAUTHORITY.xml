@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-person-authority" author="gabriel.hempel">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="personauthority"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="personauthority">
+            <column name="person_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    
+     <changeSet id="add-pa_personid_fk" author="gabriel.hempel">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="pa_personid_fk" foreignKeyTableName="personauthority"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="personauthority" baseColumnNames="person_id"
+                                 constraintName="pa_personid_fk" referencedTableName="person"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    
+     <changeSet id="add-pa_authorityid_fk" author="gabriel.hempel">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="pa_authorityid_fk" foreignKeyTableName="personauthority"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="personauthority" baseColumnNames="authority_id"
+                                 constraintName="pa_authorityid_fk" referencedTableName="authority"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    
+</databaseChangeLog>

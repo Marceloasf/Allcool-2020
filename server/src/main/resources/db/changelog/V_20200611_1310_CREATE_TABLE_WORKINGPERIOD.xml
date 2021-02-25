@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-workingperiod" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="workingperiod"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="workingperiod">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="partner_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weekday" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="openingtime" type="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="closingtime" type="time">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="workingperiod" columnNames="id" constraintName="workingperiod_pk"/>
+    </changeSet>
+
+    <changeSet id="add-wkpd_partnerid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="wkpd_partnerid_fk" foreignKeyTableName="workingperiod"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="workingperiod" baseColumnNames="partner_id"
+                                 constraintName="wkpd_partnerid_fk" referencedTableName="partner"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

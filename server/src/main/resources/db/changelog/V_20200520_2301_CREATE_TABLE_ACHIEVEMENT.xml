@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-achievement" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="achievement"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="achievement">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="uuid">
+            </column>
+            <column name="file_id" type="uuid"/>
+            <column name="title" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="achievementtype" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="brand_id" type="uuid"/>
+        </createTable>
+
+        <addPrimaryKey tableName="achievement" columnNames="id" constraintName="achievement_pk"/>
+    </changeSet>
+
+    <changeSet id="add-ac_productid_fk" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ac_productid_fk" foreignKeyTableName="achievement"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="achievement" baseColumnNames="product_id"
+                                 constraintName="ac_productid_fk" referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="add-ac_fileid_fk" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ac_fileid_fk" foreignKeyTableName="achievement"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="achievement" baseColumnNames="file_id"
+                                 constraintName="ac_fileid_fk" referencedTableName="file"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="add-ac_brandid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ac_brandid_fk" foreignKeyTableName="achievement"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="achievement" baseColumnNames="brand_id" constraintName="ac_brandid_fk"
+                                 referencedTableName="brand"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

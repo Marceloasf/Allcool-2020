@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-news" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="news"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="news">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_id" type="uuid"/>
+            <column name="file_id" type="uuid"/>
+            <column name="description" type="varchar(1000)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="numeric(15,4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="varchar(50)"/>
+            <column name="creationdate" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="eventdate" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="newstype" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="news" columnNames="id" constraintName="news_pk"/>
+    </changeSet>
+
+    <changeSet id="add-nw_addressid_fk" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="nw_addressid_fk" foreignKeyTableName="news"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="news" baseColumnNames="address_id"
+                                 constraintName="nw_addressid_fk" referencedTableName="address"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="add-nw_fileid_fk" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="nw_fileid_fk" foreignKeyTableName="news"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="news" baseColumnNames="file_id"
+                                 constraintName="nw_fileid_fk" referencedTableName="file"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

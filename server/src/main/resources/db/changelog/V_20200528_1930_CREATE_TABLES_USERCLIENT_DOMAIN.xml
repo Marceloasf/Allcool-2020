@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-userclient" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="userclient"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="userclient">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_id" type="uuid"/>
+            <column name="bio" type="varchar(200)"/>
+        </createTable>
+
+        <addPrimaryKey tableName="userclient" columnNames="id" constraintName="userclient_pk"/>
+    </changeSet>
+
+    <changeSet id="add-uc_personid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="uc_personid_fk" foreignKeyTableName="userclient"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclient" baseColumnNames="person_id"
+                                 constraintName="uc_personid_fk" referencedTableName="person"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-uc_fileid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="uc_fileid_fk" foreignKeyTableName="userclient"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclient" baseColumnNames="file_id"
+                                 constraintName="uc_fileid_fk" referencedTableName="file"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="create-table-userclientachievement" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="userclientachievement"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="userclientachievement">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="achievement_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="userclient_id" type="uuid">
+                <constraints nullable="false" />
+            </column>
+            <column name="level" type="numeric(10)">
+                <constraints nullable="false" />
+            </column>
+            <column name="progress" type="numeric(15,2)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="userclientachievement" columnNames="id" constraintName="userclientachievement_pk"/>
+    </changeSet>
+
+    <changeSet id="add-uca_achievementid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="uca_achievementid_fk" foreignKeyTableName="userclientachievement"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientachievement" baseColumnNames="achievement_id"
+                                 constraintName="uca_achievementid_fk" referencedTableName="achievement"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-uca_userclientid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="uca_userclientid_fk" foreignKeyTableName="userclientachievement"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientachievement" baseColumnNames="userclient_id"
+                                 constraintName="uca_userclientid_fk" referencedTableName="userclient"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="create-table-userclientcoupon" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="userclientcoupon"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="userclientcoupon">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="coupon_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="userclient_id" type="uuid">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="userclientcoupon" columnNames="id" constraintName="userclientcoupon_pk"/>
+    </changeSet>
+
+    <changeSet id="add-ucc_couponid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ucc_couponid_fk" foreignKeyTableName="userclientcoupon"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientcoupon" baseColumnNames="coupon_id"
+                                 constraintName="ucc_couponid_fk" referencedTableName="coupon"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-ucc_userclientid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ucc_userclientid_fk" foreignKeyTableName="userclientcoupon"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientcoupon" baseColumnNames="userclient_id"
+                                 constraintName="ucc_userclientid_fk" referencedTableName="userclient"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="create-table-userclientnews" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="userclientnews"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="userclientnews">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="news_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="userclient_id" type="uuid">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="userclientnews" columnNames="id" constraintName="userclientnews_pk"/>
+    </changeSet>
+
+    <changeSet id="add-ucn_newsid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ucn_newsid_fk" foreignKeyTableName="userclientnews"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientnews" baseColumnNames="news_id"
+                                 constraintName="ucn_newsid_fk" referencedTableName="news"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-ucn_userclientid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ucn_userclientid_fk" foreignKeyTableName="userclientnews"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientnews" baseColumnNames="userclient_id"
+                                 constraintName="ucn_userclientid_fk" referencedTableName="userclient"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="create-table-userclientproduct" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="userclientproduct"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="userclientproduct">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="userclient_id" type="uuid">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="userclientproduct" columnNames="id" constraintName="userclientproduct_pk"/>
+    </changeSet>
+
+    <changeSet id="add-ucp_productid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ucp_productid_fk" foreignKeyTableName="userclientproduct"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientproduct" baseColumnNames="product_id"
+                                 constraintName="ucp_productid_fk" referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-ucp_userclientid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ucp_userclientid_fk" foreignKeyTableName="userclientproduct"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="userclientproduct" baseColumnNames="userclient_id"
+                                 constraintName="ucp_userclientid_fk" referencedTableName="userclient"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

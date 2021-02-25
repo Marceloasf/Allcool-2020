@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-file" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="file"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="file">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="url" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filetype" type="varchar(45)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filename" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="filedate" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="file" columnNames="id" constraintName="file_pk"/>
+    </changeSet>
+</databaseChangeLog>

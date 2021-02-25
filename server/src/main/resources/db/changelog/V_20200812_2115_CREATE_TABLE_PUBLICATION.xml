@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-publication" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="publication"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="publication">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="publication_pk"/>
+            </column>
+            <column name="review_id" type="uuid"/>
+            <column name="news_id" type="uuid"/>
+            <column name="publicationtype" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="add-pb_reviewid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="pb_reviewid_fk" foreignKeyTableName="publication"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="publication" baseColumnNames="review_id" constraintName="pb_reviewid_fk"
+                                 referencedTableName="review" referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-pb_newsid_fk" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="pb_newsid_fk" foreignKeyTableName="publication"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="publication" baseColumnNames="news_id" constraintName="pb_newsid_fk"
+                                 referencedTableName="news" referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

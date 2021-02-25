@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <!-- Changesets feitos para rodar em uma base sem registros -->
+    <changeSet id="insert-data-file-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="file"/>
+        </preConditions>
+
+        <sql>
+            <!-- PRODUCTFILE -->
+            insert into file (id, url, filetype, filename, filedate)
+            values ('65d5bab3-da98-47bf-a066-ec0595bf5d09',
+            'https://allcool.s3.fr-par.scw.cloud/beers/brahma_extra_red-lager_355ml.png',
+            'png', 'brahma_extra_red-lager_355ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('e324e577-c90c-40c1-a7dc-fb8f72917e28',
+            'https://allcool.s3.fr-par.scw.cloud/beers/patagonia_amber-lager_355ml.png',
+            'png', 'patagonia_amber-lager_355ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('dbfcf08e-13b6-49d4-8382-b33c66704f4c',
+            'https://allcool.s3.fr-par.scw.cloud/beers/skol_275ml.png',
+            'png', 'skol_275ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('44af3e10-9743-44c3-a39e-42ba1d898352',
+            'https://allcool.s3.fr-par.scw.cloud/beers/franziskaner_dunkel_500ml.png',
+            'png', 'franziskaner_dunkel_500ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('ae926927-f79e-498b-8e35-336ee304e855',
+            'https://allcool.s3.fr-par.scw.cloud/beers/colorado-ribeirao_600ml.png',
+            'png', 'colorado-ribeirao_600ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('b409dc72-7a47-4a53-8217-e8567fdbff6d',
+            'https://allcool.s3.fr-par.scw.cloud/beers/corona_330ml.png',
+            'png', 'corona_330ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('8fca5416-9ff4-488d-b19e-2f8f0f9917af',
+            'https://allcool.s3.fr-par.scw.cloud/beers/stella-artois_275ml.png',
+            'png', 'stella-artois_275ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('bf319d35-5cc7-4251-a5fb-5911e78e4a6e',
+            'https://allcool.s3.fr-par.scw.cloud/beers/bohemia_puro_malte_355ml.png',
+            'png', 'bohemia_puro_malte_355ml', '2020-06-23 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('8e7013d4-29cd-4105-8f6c-4dbb97cbf4ea',
+            'https://allcool.s3.fr-par.scw.cloud/beers/colorado-appia_600ml.png',
+            'png', 'colorado_appia_600ml', '2020-09-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('3d885b6f-16bf-4939-978d-5dbf1498da13',
+            'https://allcool.s3.fr-par.scw.cloud/beers/goose-island-ipa_355ml.png',
+            'png', 'goose_island_ipa', '2020-09-02 03:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('5a0221f2-cb86-44c5-bf2f-2bf8047ad234',
+            'https://allcool.s3.fr-par.scw.cloud/beers/goose-island-sofie_355ml.png',
+            'png', 'goose_island_sofie', '2020-09-02 04:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('ccb24dce-7abb-4281-ae80-1fc5e4e086f1',
+            'https://allcool.s3.fr-par.scw.cloud/beers/leffe_blonde_330ml.png',
+            'png', 'leffe_blonde_330ml', '2020-09-02 05:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('e24e87a7-26ca-4037-9b6b-06edf44d89aa',
+            'https://allcool.s3.fr-par.scw.cloud/beers/lowenbrau_330ml.png',
+            'png', 'lowenbrau_330ml', '2020-09-02 03:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('2adc9deb-d87f-4633-9e64-b801ef019d40',
+            'https://allcool.s3.fr-par.scw.cloud/beers/becks_330ml.png',
+            'png', 'becks_330ml', '2020-09-02 02:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('8b930686-e14a-4e02-91e2-c8b28d21e5ac',
+            'https://allcool.s3.fr-par.scw.cloud/beers/wals_session-citra_600ml.png',
+            'png', 'wals_session-citra_600ml', '2020-09-03 02:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('190f81de-7ceb-4c41-a42f-807c45bce50c',
+            'https://allcool.s3.fr-par.scw.cloud/beers/wals_verano_600ml.png',
+            'png', 'wals_verano_600ml', '2020-09-09 02:00:00');
+
+            <!-- BRAND FILE -->
+            insert into file (id, url, filetype, filename, filedate)
+            values ('5d70836e-babd-4914-b6e8-64254779cfed',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_brahma.jpg',
+            'jpg', 'logo_brahma', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('8fd70d05-11e1-473d-9d0b-025e5e60a9ed',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_patagonia.jpg',
+            'jpg', 'logo_patagonia', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('d2fdfdfa-e02b-4d4b-8511-be8c854286c0',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_skol.jpg',
+            'jpg', 'logo_skol', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('61f7fae7-e913-4101-abbf-eab6ee05d2cf',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_franziskaner.jpg',
+            'jpg', 'logo_franziskaner', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('ed36be32-1889-4046-b04c-223649274367',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_colorado.jpg',
+            'jpg', 'logo_colorado', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('07937389-0c95-408e-bec7-581072061e88',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_corona.jpg',
+            'jpg', 'logo_corona', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('f793a2e5-f360-4758-89cb-6f1b7e66e33d',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_stella-artois.jpg',
+            'jpg', 'logo_stella-artois', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('1b413483-d16c-456d-8b02-5c7d2750bdb4',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_bohemia.jpg',
+            'jpg', 'logo_bohemia', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('7ca995a9-a167-46d4-b4c0-fefeced9beb1',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_goose-island.jpg',
+            'jpg', 'logo_goose_island', '2020-09-02 02:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('78a91cce-90df-402e-b650-53f00c35c576',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_leffe.jpg',
+            'jpg', 'logo_leffe', '2020-09-02 03:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('a983fbc7-2d73-45ea-a8d7-db934d6f1bbc',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_lowen.jpg',
+            'jpg', 'logo_lowen', '2020-09-02 03:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('ab0494a0-c38f-4c10-b969-60e7f9acc91b',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_becks.jpg',
+            'jpg', 'logo_becks', '2020-09-02 04:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('cc187346-fa37-4f7b-ba9d-06f3fb143bd4',
+            'https://allcool.s3.fr-par.scw.cloud/brands/logo_wals.jpg',
+            'jpg', 'logo_wals', '2020-09-03 04:00:00');
+
+            <!-- ACHIEVEMENT FILE -->
+            insert into file (id, url, filetype, filename, filedate)
+            values ('bf431a6f-bbf2-4932-85c4-ea0cd1a81b74',
+            'https://allcool.s3.fr-par.scw.cloud/achievement/primeiro-review.png',
+            'png', 'primeiro-review', '2020-06-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('25da705d-3862-4d11-87b0-de399cf3a571',
+            'https://allcool.s3.fr-par.scw.cloud/achievement/badge-rei-da-ipa-sem-coroa.png',
+            'png', 'rei-da-ipa', '2020-10-14 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('fbcdde1c-7f46-4001-a4f2-273be0684999',
+            'https://allcool.s3.fr-par.scw.cloud/achievement/brahma-badge.png',
+            'png', 'brahma-badge', '2020-10-14 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('533bd2d4-ed91-436f-b9a2-a0415fa7d4f6',
+            'https://allcool.s3.fr-par.scw.cloud/achievement/colorado-badge-top.png',
+            'png', 'colorado', '2020-10-14 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('830e3750-0ca4-4791-a325-6d4f45dffdf3',
+            'https://allcool.s3.fr-par.scw.cloud/achievement/another-badge-design.png',
+            'png', 'lager-master', '2020-10-14 01:00:00');
+
+            <!-- PARTNER FILE -->
+            insert into file (id, url, filetype, filename, filedate)
+            values ('6bc0f907-9dc3-4b2a-a0aa-1798e5f37e80',
+            'https://allcool.s3.fr-par.scw.cloud/partners/azeitona.png',
+            'png', 'partnerpic1', '2020-07-02 01:00:00');
+            insert into file (id, url, filetype, filename, filedate)
+            values ('ec4fca28-a92f-45f2-ba1b-bbe057c85fb4',
+            'https://allcool.s3.fr-par.scw.cloud/partners/agua-doce-cachacaria.png', 'png',
+            'partnerpic2', '2020-08-02 01:00:00');
+            insert into file (id, url, filetype, filename, filedate)
+            values ('5ed4aa50-3856-4f8a-94c9-923cc0384a36',
+            'https://allcool.s3.fr-par.scw.cloud/partners/democratico-rock-bar.jpg', 'jpg',
+            'partnerpic3', '2020-08-29 01:00:00');
+            insert into file (id, url, filetype, filename, filedate)
+            values ('29390b84-3ab8-41f2-b00f-f2f37290a5e7',
+            'https://allcool.s3.fr-par.scw.cloud/partners/coronel.jpg', 'jpg',
+            'partnerpic4', '2020-08-29 01:00:00');
+            insert into file (id, url, filetype, filename, filedate)
+            values ('eb76e3ee-c776-4a1e-8d44-48590e527a70',
+            'https://allcool.s3.fr-par.scw.cloud/partners/afonso.JPG', 'jpg',
+            'partnerpic5', '2020-08-29 01:00:00');
+            
+             <!-- PARTNER AVATAR FILE -->
+            insert into file (id, url, filetype, filename, filedate)
+            values ('2ca9ea86-a770-49d7-b8e9-8d7c46bb576c',
+            'https://allcool.s3.fr-par.scw.cloud/partners/avatar/agua-doce-logo.png',
+            'png', 'partnerpic1', '2020-10-08 01:00:00');
+            insert into file (id, url, filetype, filename, filedate)
+            values ('b4c9dac1-71e7-45de-a147-d4659f6af600',
+            'https://allcool.s3.fr-par.scw.cloud/partners/avatar/coronel-logo.png', 'png',
+            'partnerpic2', '2020-10-08 01:00:00');
+            insert into file (id, url, filetype, filename, filedate)
+            values ('906215b4-009d-4a8e-97cf-62cbbb6744e4',
+            'https://allcool.s3.fr-par.scw.cloud/partners/avatar/democrativos-logo.png', 'png',
+            'partnerpic3', '2020-10-08 01:00:00');
+            
+
+            <!-- REVIEW FILE -->
+            insert into file (id, url, filetype, filename, filedate)
+            values ('50853f04-4d88-4a31-9883-448fe0aebbd0',
+            'https://allcool.s3.fr-par.scw.cloud/beers/brahma_extra_red-lager_355ml.png',
+            'png', 'reviewpic1', '2020-07-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('682842f8-4001-41a3-82b7-217f7c245375',
+            'https://allcool.s3.fr-par.scw.cloud/reviews/patagonia-amber-lager-review1.jpg', 'jpg',
+            'patagonia-amber-lager-review1', '2020-08-02 01:00:00');
+            
+            insert into file (id, url, filetype, filename, filedate)
+            values ('3cc6d0f5-0432-4798-bb08-8605a5b0ba4b',
+            'https://allcool.s3.fr-par.scw.cloud/beers/brahma_extra_red-lager_355ml.png',
+            'png', 'reviewpic4', '2020-07-02 01:00:00');
+
+            <!-- PERSON FILE -->
+            insert into file (id, url, filetype, filename, filedate)
+            values ('dac0f400-ef91-4fda-9b82-b92f946dbcf8',
+            'https://allcool.s3.fr-par.scw.cloud/userclient/testedasilva.png',
+            'png', 'testedasilva', '2020-08-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('3ef6313a-fa68-4f81-87da-f7984553f90d',
+            'https://allcool.s3.fr-par.scw.cloud/userclient/testedasilva.png',
+            'png', 'josedasilva', '2020-08-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('9f87d393-1169-4270-b071-4c88ca35f12a',
+            'https://allcool.s3.fr-par.scw.cloud/userclient/testedasilva.png',
+            'png', 'usuarioteste', '2020-08-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('6ba8a088-b83f-46dc-8c0b-c66df295cb86',
+            'https://allcool.s3.fr-par.scw.cloud/userclient/testedasilva.png',
+            'png', 'mike', '2020-08-02 01:00:00');
+
+            insert into file (id, url, filetype, filename, filedate)
+            values ('3a7ffaa5-00e6-426b-968a-4739f31fa114',
+            'https://allcool.s3.fr-par.scw.cloud/news/foto-festa-news1.jpg', 'jpg', 'foto-festa-news1',
+            '2020-08-02 01:00:00');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-producttype-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="producttype"/>
+        </preConditions>
+
+        <sql>
+            insert into producttype (id, code, description)
+            values ('d6a0ed3a-82b7-4c10-9190-27a737faf454', 1, 'Extra Red Lager');
+            insert into producttype (id, code, description)
+            values ('256b6606-97b6-11ea-bb37-0242ac130002', 2, 'Amber Lager');
+            insert into producttype (id, code, description)
+            values ('b14f706c-fbe0-43b4-bf0c-7afb36ff4149', 3, 'American Lager');
+            insert into producttype (id, code, description)
+            values ('78dc3b79-fbe9-4cee-8302-97e9af4c2247', 4, 'German Weizen');
+            insert into producttype (id, code, description)
+            values ('049ad2c4-c73a-41dc-a6e0-954e24197d2e', 5, 'Premium American Lager');
+            insert into producttype (id, code, description)
+            values ('5cc0f089-1a42-455a-b9b6-470cb4971fb7', 6, 'Honey Wheat Ale');
+            insert into producttype (id, code, description)
+            values ('5c2c5662-b833-4fb0-85a0-81421de35f88', 7, 'India Pale Ale');
+            insert into producttype (id, code, description)
+            values ('59a9fa1c-8ede-46af-99a0-e5447d6d4ae6', 8, 'Belgian Farmhouse Ale');
+            insert into producttype (id, code, description)
+            values ('1f016893-bf59-4abd-beca-03639f5198cd', 9, 'Belgian Blond Ale');
+            insert into producttype (id, code, description)
+            values ('b6479d9a-3b19-458c-9eb8-5646eb3b7e9a', 10, 'Munich Helles');
+            insert into producttype (id, code, description)
+            values ('f5a3ea88-d3fc-47e3-b398-21349436a5bb', 11, 'German Pilsner');
+            insert into producttype (id, code, description)
+            values ('761da17b-ff45-43a4-8170-a38dfe1be776', 12, 'Session IPA');
+            insert into producttype (id, code, description)
+            values ('8d525381-ac87-4c10-93f7-0612e1d10d1f', 13, 'Pale Ale');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-brand-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="brand"/>
+        </preConditions>
+
+        <sql>
+            insert into brand (id, brandname, file_id)
+            values('c86c2e22-c34b-4c0c-aded-055d0c0e696a', 'Brahma', '5d70836e-babd-4914-b6e8-64254779cfed');
+            insert into brand (id, brandname, file_id)
+            values('d61fef57-50bf-4949-a296-2f09b3523504', 'Patagonia', '8fd70d05-11e1-473d-9d0b-025e5e60a9ed');
+            insert into brand (id, brandname, file_id)
+            values('fb7faff3-b5cc-470f-9775-d9b76252d8e5', 'Skol', 'd2fdfdfa-e02b-4d4b-8511-be8c854286c0');
+            insert into brand (id, brandname, file_id)
+            values('b597e935-48a1-4251-9deb-0e8270df8b74', 'Franziskaner', '61f7fae7-e913-4101-abbf-eab6ee05d2cf');
+            insert into brand (id, brandname, file_id)
+            values('dc528d69-07e5-42e9-b38e-c6cab8220eb2', 'Colorado', 'ed36be32-1889-4046-b04c-223649274367');
+            insert into brand (id, brandname, file_id)
+            values('57f21e89-e0bf-4231-a863-986538e47053', 'Corona ', '07937389-0c95-408e-bec7-581072061e88');
+            insert into brand (id, brandname, file_id)
+            values('334ea6f5-0ff3-4b23-84c6-dd4015cfbbaf', 'Stella Artois', 'f793a2e5-f360-4758-89cb-6f1b7e66e33d');
+            insert into brand (id, brandname, file_id)
+            values('76f45870-2636-457b-a3c7-5f417958bc56', 'Bohemia', '1b413483-d16c-456d-8b02-5c7d2750bdb4');
+            insert into brand (id, brandname, file_id)
+            values ('7e4bb82b-fa9e-4261-a9de-486a3dc77dd4', 'Goose Island', '7ca995a9-a167-46d4-b4c0-fefeced9beb1');
+            insert into brand (id, brandname, file_id)
+            values ('715603c8-139a-4edf-8365-4a808cd9ec06', 'Leffe', '78a91cce-90df-402e-b650-53f00c35c576');
+            insert into brand (id, brandname, file_id)
+            values ('264d3f83-b2c5-4e5a-b633-805dc0a75f7c', 'Löwenbräu', 'a983fbc7-2d73-45ea-a8d7-db934d6f1bbc');
+            insert into brand (id, brandname, file_id)
+            values ('76136a62-0fe2-4fed-b6b4-35f45c64b25d', 'Beck’s', 'ab0494a0-c38f-4c10-b969-60e7f9acc91b');
+            insert into brand (id, brandname, file_id)
+            values ('30e13720-f416-4902-8ca2-c2f650434914', 'Wäls', 'cc187346-fa37-4f7b-ba9d-06f3fb143bd4');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-product-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="product"/>
+        </preConditions>
+
+        <sql>
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('f0e11a71-8ff7-4e61-80b4-de0082665b73', 1, 'Brahma Extra Red Lager', 'Sabor marcante que combina com ma' ||
+            'ssas e queijos é com a Brahma Red Lager. A cerveja tem um leve aroma de caramelo, malte torrado e suave' ||
+            's notas de frutas e doces.', 'Massas a Bolonhesa e Queijo Parmesão.', 'Y',
+            'd6a0ed3a-82b7-4c10-9190-27a737faf454','c86c2e22-c34b-4c0c-aded-055d0c0e696a', 10, 4, 8, 5.2);
+
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('8f50022f-4058-4f8e-8062-fc0ef9bc327e', 2, 'Patagonia Amber Lager', 'Nossa primogênita, uma Amber Lager' ||
+            ' clássica, feita com lúpulos cultivados e colhidos por nós. Tem cor marrom acobreada e o sabor equilibr' ||
+            'ado de malte e lúpulo. Os maltes caramelo Melanoidin, Carared e Carapils usados em sua produção lhe con' ||
+            'ferem um aroma sutil e boa formação de espuma.', 'Carnes e vegetais grelhados.', 'Y',
+            '256b6606-97b6-11ea-bb37-0242ac130002','d61fef57-50bf-4949-a296-2f09b3523504', 13.5, 4, 8, 4.5);
+
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('1c431db5-908f-4b89-ba05-77d402896e0c', 3, 'Skol Pilsen', 'Skol Pilsen é uma típica cerveja clara, com ' ||
+            'aroma refinado e sabor leve e suave. Seu teor de amargor é menos acentuado e seu teor alcoólico é médio.',
+            'Saladas, camarão e mariscos.', 'Y', 'b14f706c-fbe0-43b4-bf0c-7afb36ff4149',
+            'fb7faff3-b5cc-470f-9775-d9b76252d8e5', 8, 0, 4, 4.6);
+
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('3657343c-4e27-4ac6-a562-f3a586612a16', 4, 'Franziskaner Dunkel', 'A Cerveja Franziskaner Hefe Weissbie' ||
+            'r Dunkel apresenta cor caramelo e aspecto opaco, com um sabor mais intenso de malte do que a variedade ' ||
+            'Hell, sendo encorpada e refrescante. Devido aos grãos de trigo torrados e adicionados no seu processo d' ||
+            'e produção, possui um sabor marcante e um pronunciado aroma torrado que agrada aos amantes de cerveja e' ||
+            'scura de todo o mundo.', 'Frango assado, lombo defumado e salsicha.', 'Y',
+            '78dc3b79-fbe9-4cee-8302-97e9af4c2247', 'b597e935-48a1-4251-9deb-0e8270df8b74', 12, 4, 8, 5);
+
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('199a5d4f-c7b9-4580-a825-27601a24025a', 5, 'Colorado Ribeirão Lager', 'Essa é a Colorado Ribeirão Lager' ||
+            '. Uma cerveja que o nome já diz tudo. Nascida em Ribeirão Preto, nossa casa, é uma lager leve e refresc' ||
+            'ante, mas com a cara da Colorado, uma cervejaria que nunca faria mais do mesmo. Desiberne!',
+            'Alimentos leves e frescos como peixes grelhados e saladas.', 'Y', 'b14f706c-fbe0-43b4-bf0c-7afb36ff4149',
+            'dc528d69-07e5-42e9-b38e-c6cab8220eb2', 20, 0, 4, 4.5);
+
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('e9506774-2343-4a06-8566-801b21e5d6e2', 6, 'Corona 330ml', 'A Corona clássica: perfeita para saborear n' ||
+            'a praia com os amigos, gelada e com uma fatia de limão.', 'Bolinhos de bacalhau, ostras temperadas ou c' ||
+            'amarões fritos.', 'Y', 'b14f706c-fbe0-43b4-bf0c-7afb36ff4149',
+            '57f21e89-e0bf-4231-a863-986538e47053', 18, 0, 4, 4.6);
+
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('d30fe433-97c1-4b95-a6ce-9d9907608f79', 7, 'Stella Artois', 'A experiência e a tradição cervejeira de m' ||
+            'ais de 600 anos resultam em uma lager muito bem equilibradas. Uma cerveja de sabor intenso e com final ' ||
+            'suave. Stella Artois foi criada para ser saboreada.', 'Carnes vermelhas e frutos do mar.', 'Y',
+            '049ad2c4-c73a-41dc-a6e0-954e24197d2e', '334ea6f5-0ff3-4b23-84c6-dd4015cfbbaf', 16, 0, 4, 5);
+
+            insert into product(id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('c179f011-c4a2-4486-b9a7-bdf39456132d', 8, 'Bohemia Puro Malte', 'Primeira cerveja do Brasil, a Bohemia' ||
+            ' Puro Malte tem sido fiel às suas principais características: aroma e sabor. O mestre cervejeiro da Cer' ||
+            'vejaria Bohemia mantém a alquimia desta fórmula para obter um produto único e garantir um padrão de qua' ||
+            'lidade extremamente rígido e superior. Clara, leve, muito refrescante, é produzida com lúpulo Saaz 100%' ||
+            ' importado, da República Tcheca. Seu aroma levemente frutado é marcado por notas leves de malte e lúpulo.',
+            'Embutidos e saladas.', 'Y', '049ad2c4-c73a-41dc-a6e0-954e24197d2e', '76f45870-2636-457b-a3c7-5f417958bc56',
+            9, 0, 4, 4.95);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('1ee952d0-c536-4300-9318-1dd04abf3fd1', 9, 'Colorado Appia', 'A palavra Appia vem do latim e significa ' ||
+            'abelha. O nome perfeito para a primeira cerveja do Brasil a utilizar mel em sua fórmula. Uma combinação' ||
+            ' exótica que, além do mel das laranjeiras, é feita a partir da melhor cevada, trigos maltados e nossa e' ||
+            'xclusiva levedura de alta fermentação. Doce, encorpada e refrescante, é perfeita para quem busca novos ' ||
+            'e diferentes sabores.', 'Por ser uma cerveja leve, a Colorado Appia vai combinar muito bem comidas mais' ||
+            ' leves como pernil, saladas, frango, massas e queijo brie.', 'Y', '5cc0f089-1a42-455a-b9b6-470cb4971fb7',
+            'dc528d69-07e5-42e9-b38e-c6cab8220eb2', 10, 4, 8, 5.5);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('0f78617f-c15e-4bdb-a367-44477785f0d4', 10, 'Goose Island IPA', 'A Goose Island IPA, vencedora de seis ' ||
+            'medalhas no Great American Beer Festival, é o principal rótulo da marca. Pegamos o tradicional estilo i' ||
+            'nglês, a India Pale Ale, e criamos a nossa versão mais encorpada, com aromas cítricos e sabor intenso m' ||
+            'as suave. A Goose IPA é a cerveja perfeita tanto para amantes de lúpulo quanto para desbravadores da ce' ||
+            'rveja especial.', 'O amargor da Goose IPA ajuda a quebrar a gordura de pratos mais intensos, como carne' ||
+            's vermelhas e queijos azuis.', 'Y', '5c2c5662-b833-4fb0-85a0-81421de35f88',
+            '7e4bb82b-fa9e-4261-a9de-486a3dc77dd4', 55, 8, 12, 5.9);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('45ae8fdd-dd16-4c11-9c46-efc59359cd0e', 11, 'Goose Island Sofie', 'A premiada Cerveja Goose Island Sofi' ||
+            'e aterrissou no Brasil. Ela é uma Belgian Farmhouse Ale que tem 20% de sua receita refermentada com ras' ||
+            'pas de laranja em barris de vinho.', 'Sua acidez permite harmonizar muito bem com peixes, sushi e torta' ||
+            ' de limão.', 'Y', '59a9fa1c-8ede-46af-99a0-e5447d6d4ae6', '7e4bb82b-fa9e-4261-a9de-486a3dc77dd4', 20, 4, 8,
+            6.5);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('07b1be3a-4854-4a7f-a6d0-d4b64a60826b', 12, 'Leffe Blonde', 'Com coloração dourada e sabor suave, a Lef' ||
+            'fe Blonde é uma Belgian Blond Ale seca, com maltes selecionados que proporcionam uma cerveja encorpada ' ||
+            'e turva. Apesar do sabor levemente adocicado e refrescante, é possível notar a presença marcante do lúp' ||
+            'ulo. Campeã Mundial com Medalha de Ouro no Estilo Belgian Style Blonde na WBA 2017.', 'A Cerveja Leffe ' ||
+            'Blonde é complexa, encorpada e com notas condimentadas que harmonizam perfeitamente com molho pesto e m' ||
+            'exilhões.', 'Y', '1f016893-bf59-4abd-beca-03639f5198cd', '715603c8-139a-4edf-8365-4a808cd9ec06', 21.5, 4,
+            8, 6.6);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('ca973f54-778f-44bb-a4c7-9099dd7afa4b', 13, 'Löwenbräu', 'Tradicional cerveja alemã de Munique, a cerve' ||
+            'ja Löwenbräu é uma típica Munich Helles: de cor clara, sabor maltado e levemente amargo, além de muito ' ||
+            'refrescante. Essas características fazem da Löwenbräu uma ótima opção de cerveja para curtir o happy ho' ||
+            'ur com os amigos, acompanhada por petiscos clássicos, como amendoins ou bolinhos de bacalhau.', 'O amar' ||
+            'gor e a alta refrescância vão cortar a gordura do bolinho de bacalhau, o leve dulçor de malte e os sabo' ||
+            'res de pão vão suavizar o ardor de pratos picantes, os aromas florais vão complementar a harmonização.',
+            'Y', 'b6479d9a-3b19-458c-9eb8-5646eb3b7e9a', '264d3f83-b2c5-4e5a-b633-805dc0a75f7c', 19, 4, 8, 5.6);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('7cd98967-c210-427f-b520-fdb59cfbb42c', 14, 'Beck’s', 'Beck’s é uma legítima German Lager Puro Malte, q' ||
+            'ue segue à risca a lei da pureza da cerveja alemã desde 1873. Seu IBU é 20. O resultado é uma cerveja d' ||
+            'e amargor intenso, sabor marcante e excepcional pureza. Ela é provocante, cheia de personalidade e com ' ||
+            'um sabor característico e único. A cerveja alemã mais vendida no mundo.', 'Por ser uma cerveja tradicio' ||
+            'nal da Alemanha, harmoniza bem com os principais pratos alemães. Mas para quem busca alimentos mais lev' ||
+            'es ela também harmoniza com peixes grelhados, frutos do mar e saladas por conta da sua alta refrescância.',
+            'Y', 'f5a3ea88-d3fc-47e3-b398-21349436a5bb', '76136a62-0fe2-4fed-b6b4-35f45c64b25d', 20, 0, 4, 5);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('138292da-2c70-47af-bf87-20b56873abbd', 15, 'Wäls Session Citra', 'A massiva quantidade de lúpulo ameri' ||
+            'cano Citra e base de malte fazem dessa Session IPA uma explosão de refrescância. Possui amargor moderad' ||
+            'o e aroma cítrico. A Cerveja Wäls Session Citra, mesmo consumida em grandes quantidades, não perde suas' ||
+            ' qualidades nem seus sabores intensos (sempre relevantes ao paladar). Campeã Nacional com Medalha de Pr' ||
+            'ata no Estilo Pale Beer Session IPA na WBA 2017.', 'Harmoniza bem com um belo churrasco na beira da pis' ||
+            'cina, frutos do mar e petiscos.', 'Y', '761da17b-ff45-43a4-8170-a38dfe1be776',
+            '30e13720-f416-4902-8ca2-c2f650434914', 30, 8, 12, 3.9);
+
+            insert into product (id, code, productname, description, harmonization, active, producttype_id, brand_id,
+            ibu, minimumtemperature, maximumtemperature, alcoholcontent) values
+            ('0b96fdd8-71b1-4bcb-bbab-da74e4ed2628', 16, 'Wäls Verano', 'A Cerveja Wäls Verano é ideal para o verão ' ||
+            'por ser muito equilibrada e refrescante. Ela passa por um dry hopping de lúpulo Columbus que a deixa co' ||
+            'm aromas que vão desde o cítrico ao floral, e seu corpo possui um bom balanço devido aos maltes que a c' ||
+            'ompõe. Harmoniza muito bem com carne assada, carne com chili, carpaccio, empanadas, frango assado e piz' ||
+            'za calabresa.', 'Harmoniza bem com hambúrguer, carne de porco, pizza e peru.', 'Y',
+            '8d525381-ac87-4c10-93f7-0612e1d10d1f', '30e13720-f416-4902-8ca2-c2f650434914', 25, 4, 8, 5);
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-productfile-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="productfile"/>
+        </preConditions>
+
+        <sql>
+            insert into productfile (id, product_id, file_id, listed)
+            values('646cca9f-e90a-416a-a692-ae112968449e', 'f0e11a71-8ff7-4e61-80b4-de0082665b73',
+            '65d5bab3-da98-47bf-a066-ec0595bf5d09', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values('e9e2dfa3-7496-48a5-a64c-42eb3c52c237', '8f50022f-4058-4f8e-8062-fc0ef9bc327e',
+            'e324e577-c90c-40c1-a7dc-fb8f72917e28', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values('909bc4e0-6f71-4a8c-a837-ae4500f7c4da', '1c431db5-908f-4b89-ba05-77d402896e0c',
+            'dbfcf08e-13b6-49d4-8382-b33c66704f4c', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values('7a3ab139-c8ec-4235-9c79-490d832a2c99', '3657343c-4e27-4ac6-a562-f3a586612a16',
+            '44af3e10-9743-44c3-a39e-42ba1d898352', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values('daebe36f-fc00-4045-b84e-8d5e45432e0f', '199a5d4f-c7b9-4580-a825-27601a24025a',
+            'ae926927-f79e-498b-8e35-336ee304e855', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values('bdcc6abb-795f-43e0-a70d-c6e76cf41320', 'e9506774-2343-4a06-8566-801b21e5d6e2',
+            'b409dc72-7a47-4a53-8217-e8567fdbff6d', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values('09d29655-1aea-42a1-8ac6-d3229fa390b7', 'd30fe433-97c1-4b95-a6ce-9d9907608f79',
+            '8fca5416-9ff4-488d-b19e-2f8f0f9917af', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values('fd6e6d24-32b1-4ba6-99cc-f3eb7663c38b', 'c179f011-c4a2-4486-b9a7-bdf39456132d',
+            'bf319d35-5cc7-4251-a5fb-5911e78e4a6e', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('a4c6faaa-8902-41d3-92fe-740a05d4af5c', '1ee952d0-c536-4300-9318-1dd04abf3fd1',
+            '8e7013d4-29cd-4105-8f6c-4dbb97cbf4ea', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('02eae815-6ce4-414c-a586-20306a5a431d', '0f78617f-c15e-4bdb-a367-44477785f0d4',
+            '3d885b6f-16bf-4939-978d-5dbf1498da13', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('a4d33052-58e9-4c0e-b99a-89addc0e4bb2', '45ae8fdd-dd16-4c11-9c46-efc59359cd0e',
+            '5a0221f2-cb86-44c5-bf2f-2bf8047ad234', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('6a84dd18-87b1-4566-86bb-aeb617ac90fb', '07b1be3a-4854-4a7f-a6d0-d4b64a60826b',
+            'ccb24dce-7abb-4281-ae80-1fc5e4e086f1', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('39b29fb0-26a8-4216-8f6f-5f0e2024f7c1', 'ca973f54-778f-44bb-a4c7-9099dd7afa4b',
+            'e24e87a7-26ca-4037-9b6b-06edf44d89aa', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('8eb2029b-becb-4116-9a23-189b114c4a07', '7cd98967-c210-427f-b520-fdb59cfbb42c',
+            '2adc9deb-d87f-4633-9e64-b801ef019d40', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('f0ffcea7-812f-4d00-8f1a-d490850821e3', '138292da-2c70-47af-bf87-20b56873abbd',
+            '8b930686-e14a-4e02-91e2-c8b28d21e5ac', 'Y');
+            insert into productfile (id, product_id, file_id, listed)
+            values ('33e760cf-ecfe-4b4e-b144-7dddea7e877f', '0b96fdd8-71b1-4bcb-bbab-da74e4ed2628',
+            '190f81de-7ceb-4c41-a42f-807c45bce50c', 'Y');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-productflavor-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="productflavor"/>
+        </preConditions>
+
+        <sql>
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('36ddc8d4-da58-45ed-91ae-14cae9a8cc6f', 'Adocicado',
+            'SWEET', '1ee952d0-c536-4300-9318-1dd04abf3fd1');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('9d2a9787-9420-4561-9c30-79a2cd34649f', 'Mel',
+            'SWEET', '1ee952d0-c536-4300-9318-1dd04abf3fd1');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('f6cc0d47-1e8f-49f4-89de-f503dc60c21f', 'Frutado',
+            'SWEET', '1ee952d0-c536-4300-9318-1dd04abf3fd1');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('50b9a771-5be0-40b4-ad56-3d0e42548afa', 'Frutado',
+            'SWEET', '199a5d4f-c7b9-4580-a825-27601a24025a');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('48efbcd0-8993-444b-b25a-a5e7a3f023af', 'Amargor',
+            'BITTER', '199a5d4f-c7b9-4580-a825-27601a24025a');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('f86be494-7847-4aa1-ac89-102e1b500caf', 'Cítrico',
+            'SOUR', '199a5d4f-c7b9-4580-a825-27601a24025a');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('ca13956d-cfc0-4dba-9c89-620ef29a264d', 'Laranja',
+            'SOUR', '199a5d4f-c7b9-4580-a825-27601a24025a');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('a70946d7-5779-4621-b8a1-50a9bd198641', 'Frutado',
+            'SWEET', 'c179f011-c4a2-4486-b9a7-bdf39456132d');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('44c33f26-deb4-40c2-b894-d1d8bd4f371d', 'Amargor',
+            'BITTER', 'c179f011-c4a2-4486-b9a7-bdf39456132d');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('394d03d7-d899-401b-af63-fc92cac730be', 'Adocicado',
+            'SWEET', 'c179f011-c4a2-4486-b9a7-bdf39456132d');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values('f329cccf-c105-48f6-95c2-78a4ce11cf7f', 'Adocicado',
+            'SWEET', 'f0e11a71-8ff7-4e61-80b4-de0082665b73');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('b25cbe9a-196b-4d4b-8aea-54e83d9a9d99', 'Frutado',
+            'SWEET', 'f0e11a71-8ff7-4e61-80b4-de0082665b73');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('8218d474-da37-4341-a685-6606b5a3ee9b', 'Caramelo',
+            'SWEET', 'f0e11a71-8ff7-4e61-80b4-de0082665b73');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('07e9830c-014a-49ac-92fb-72328c3d1853', 'Amargor',
+            'BITTER', 'f0e11a71-8ff7-4e61-80b4-de0082665b73');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('09809e81-b431-44e3-a3a5-e6ce9c32f1b2', 'Adocicado',
+            'SWEET', '0f78617f-c15e-4bdb-a367-44477785f0d4');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('4a5af518-44c9-42ef-989a-8375ce036f5f', 'Malte',
+            'SWEET', '0f78617f-c15e-4bdb-a367-44477785f0d4');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('9866bed8-01d6-4d6f-9ff8-6619ce4acfe3', 'Amargor',
+            'BITTER', '0f78617f-c15e-4bdb-a367-44477785f0d4');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('3be85342-4c8a-41a8-bbdf-31b059748513', 'Cítrico',
+            'SOUR', '0f78617f-c15e-4bdb-a367-44477785f0d4');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('d66e67aa-143b-459a-9d30-95ed1500a45d', 'Cítrico',
+            'SOUR', '45ae8fdd-dd16-4c11-9c46-efc59359cd0e');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('f87c78d5-e3e3-46b9-9d34-2cad32ecb7da', 'Lúpulo',
+            'BITTER', '45ae8fdd-dd16-4c11-9c46-efc59359cd0e');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('fe436291-cc4a-41a5-a4e3-1d845a7f36de', 'Acidez',
+            'SOUR', '45ae8fdd-dd16-4c11-9c46-efc59359cd0e');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('82730153-21aa-4c99-bbd4-02692fbd4286', 'Frutado',
+            'SWEET', '45ae8fdd-dd16-4c11-9c46-efc59359cd0e');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('ced35f55-041b-440f-93df-847249fd5ec9', 'Frutado',
+            'BITTER', '07b1be3a-4854-4a7f-a6d0-d4b64a60826b');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('a775c29b-adbe-463a-977a-fe40e2e9d326', 'Adocicado',
+            'SWEET', '07b1be3a-4854-4a7f-a6d0-d4b64a60826b');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('7e34b772-9c4c-4352-bed5-b9f0ba101fb7', 'Malte',
+            'SWEET', '07b1be3a-4854-4a7f-a6d0-d4b64a60826b');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('fd97c961-e02b-46d2-9750-7b63d3b9b3c5', 'Lúpulo',
+            'SWEET', '07b1be3a-4854-4a7f-a6d0-d4b64a60826b');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('3d5bb407-2df7-4748-bd55-6044a01a2314', 'Malte',
+            'BITTER', 'ca973f54-778f-44bb-a4c7-9099dd7afa4b');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('c7800e51-0583-4b22-ae26-8f1839409d84', 'Amargor',
+            'BITTER', 'ca973f54-778f-44bb-a4c7-9099dd7afa4b');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('5bd9f7ff-d13b-49cc-a191-9aefef6c119f', 'Amargor Suave',
+            'BITTER', 'ca973f54-778f-44bb-a4c7-9099dd7afa4b');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('7de7a5b5-2762-4191-ac75-b484cf47294d', 'Lúpulo',
+            'SWEET', 'ca973f54-778f-44bb-a4c7-9099dd7afa4b');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('65db18f4-b40b-4cfd-95a0-024caab3b26d', 'Frutado',
+            'SWEET', '7cd98967-c210-427f-b520-fdb59cfbb42c');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('ec32c2a1-9377-4cae-b994-ad99e0d3127d', 'Adocicado',
+            'SWEET', '7cd98967-c210-427f-b520-fdb59cfbb42c');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('7431064b-429d-4ed8-bc49-a942c213b598', 'Malte',
+            'SWEET', '7cd98967-c210-427f-b520-fdb59cfbb42c');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('a777cbd6-aa49-4964-9c47-8757b32732cb', 'Amargor',
+            'BITTER', '7cd98967-c210-427f-b520-fdb59cfbb42c');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('e5934d5e-c369-4a42-9060-99deef0c1cae', 'Frutado',
+            'SWEET', '8f50022f-4058-4f8e-8062-fc0ef9bc327e');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('397975a0-b0f1-43dc-997e-6651d6b48575', 'Caramelo',
+            'SWEET', '8f50022f-4058-4f8e-8062-fc0ef9bc327e');
+            insert into productflavor (id, description, flavortype, product_id)
+            values('fbfef2e6-e26d-4839-8c12-cc6849d195a8', 'Amargor',
+            'BITTER', '8f50022f-4058-4f8e-8062-fc0ef9bc327e');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('1882e5bb-faef-426d-a3fc-a68e601053c2', 'Malte',
+            'SWEET', '1c431db5-908f-4b89-ba05-77d402896e0c');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('d6639bca-c044-4125-b309-6e64e32e2e58', 'Amargor',
+            'BITTER', '1c431db5-908f-4b89-ba05-77d402896e0c');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('b3e63031-b823-40ad-89d4-1f6d6a3553bb', 'Adocicado',
+            'SWEET', 'd30fe433-97c1-4b95-a6ce-9d9907608f79');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('87f0cc39-7d2b-4062-86a5-b21228e18bdc', 'Amargor',
+            'BITTER', 'd30fe433-97c1-4b95-a6ce-9d9907608f79');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('00628bf6-534e-4962-b693-7ed6083670a2', 'Carbonatada',
+            'SALTY', 'd30fe433-97c1-4b95-a6ce-9d9907608f79');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('2da918c7-515c-4500-bc74-d829c706c8b5', 'Frutado',
+            'SWEET', '138292da-2c70-47af-bf87-20b56873abbd');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('599b43aa-06c3-4d05-ac12-878e353348a1', 'Caramelo',
+            'SWEET', '138292da-2c70-47af-bf87-20b56873abbd');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('20024d12-f5eb-4d7e-9c6c-5596f4329fca', 'Amargor',
+            'BITTER', '138292da-2c70-47af-bf87-20b56873abbd');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('cf8eb835-5a40-45e4-a2b7-0543623da94b', 'Cítrico',
+            'SOUR', '138292da-2c70-47af-bf87-20b56873abbd');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('cbc65e54-2968-428f-82bf-34d2c74f983e', 'Frutado',
+            'SWEET', '0b96fdd8-71b1-4bcb-bbab-da74e4ed2628');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('125afea3-bc1b-408c-838b-6c02f4ca8a08', 'Malte',
+            'SWEET', '0b96fdd8-71b1-4bcb-bbab-da74e4ed2628');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('feb8427d-edb7-4db5-9099-6e811b47ca07', 'Amargor',
+            'BITTER', '0b96fdd8-71b1-4bcb-bbab-da74e4ed2628');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('7ebc07b2-2a1d-4d8e-8d30-81d33dfb4ea7', 'Lúpulo',
+            'BITTER', '0b96fdd8-71b1-4bcb-bbab-da74e4ed2628');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('408797bd-c962-4dad-9c8e-6f246a8aac97', 'Adocicado',
+            'SWEET', '3657343c-4e27-4ac6-a562-f3a586612a16');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('08d4cc97-bf33-497b-b775-2799a8bfad28', 'Frutado',
+            'SWEET', '3657343c-4e27-4ac6-a562-f3a586612a16');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('1ecf928e-4639-4671-947d-29643fdfeab6', 'Amargor',
+            'BITTER', '3657343c-4e27-4ac6-a562-f3a586612a16');
+
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('21e62677-7230-4675-950d-c8ba5702cf02', 'Amargor',
+            'BITTER', 'e9506774-2343-4a06-8566-801b21e5d6e2');
+            insert into productflavor (id, description, flavortype, product_id)
+            values ('782e1bd9-a8dd-4e2c-8495-bec7a32aacf8', 'Frutado',
+            'SWEET', 'e9506774-2343-4a06-8566-801b21e5d6e2');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-container-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="container"/>
+        </preConditions>
+
+        <sql>
+            insert into container (id, containertype, capacity)
+            values('f5014a75-c3db-40b8-a49b-2076e1b19801', 'LONGNECK', 355);
+            insert into container (id, containertype, capacity)
+            values('6e64b574-d43c-4278-96c6-ca772da91fbe', 'GLASSBOTTLE', 200);
+            insert into container (id, containertype, capacity)
+            values('e57aac5f-9fe7-4c22-9971-683dddf3aa5c', 'CAN', 350);
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-productcontainer-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="productcontainer"/>
+        </preConditions>
+
+        <sql>
+            insert into productcontainer (id, product_id, container_id)
+            values('6a8fee85-514a-4436-95a9-dd4961deb859', 'f0e11a71-8ff7-4e61-80b4-de0082665b73',
+            'f5014a75-c3db-40b8-a49b-2076e1b19801');
+            insert into productcontainer (id, product_id, container_id)
+            values('36eff1ee-a2b4-4496-b126-60f40067ec24', '8f50022f-4058-4f8e-8062-fc0ef9bc327e',
+            '6e64b574-d43c-4278-96c6-ca772da91fbe');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-achievement-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="achievement"/>
+        </preConditions>
+
+        <sql>
+            insert into achievement (id, file_id, title, description, achievementtype, creationdate)
+            values ('ce583254-d732-4fe7-85fb-a11585399766', 'bf431a6f-bbf2-4932-85c4-ea0cd1a81b74',
+            'Primeiro Review', 'Bem vindo ao Allcool! Cervejeiros do Allcool!', 'PRODUCT_TYPE', '2020-10-07');
+
+            insert into achievement (id, file_id, title, description, achievementtype, creationdate)
+            values ('b0d057af-5205-41b9-b214-1a7ae8873c18', '830e3750-0ca4-4791-a325-6d4f45dffdf3',
+            'Lager Master', 'Você realmente gosta de uma lager!', 'PRODUCT_TYPE', '2020-10-15');
+
+            insert into achievement (id, file_id, title, description, achievementtype, creationdate)
+            values ('973fa838-b92f-4a38-ab7f-56a129b8c4d3', '533bd2d4-ed91-436f-b9a2-a0415fa7d4f6',
+            'Bem vindo a colorado', 'A primeira colorado a gente nunca esquece', 'PRODUCT_TYPE', '2020-10-21');
+
+            insert into achievement (id, file_id, product_id, title, description, achievementtype, brand_id, creationdate)
+            values ('9a150cbe-ba28-46a9-9f6b-5db747ddee8c', 'fbcdde1c-7f46-4001-a4f2-273be0684999',
+            'f0e11a71-8ff7-4e61-80b4-de0082665b73','Vai uma Brahma?', 'Vai uma brahminha ai?', 'PRODUCT_TYPE',
+            'c86c2e22-c34b-4c0c-aded-055d0c0e696a', '2020-10-25');
+
+            insert into achievement (id, file_id, title, description, achievementtype, creationdate)
+            values ('42f4aaf4-ec8a-4071-9a37-9bbeb2c14e40', '25da705d-3862-4d11-87b0-de399cf3a571',
+            'Rei da IPA', 'Sua paixão pela IPA foi recompensada!', 'PRODUCT_TYPE', '2020-10-09');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-achievementproducttype-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="achievementproducttype"/>
+        </preConditions>
+
+        <sql>
+            insert into achievementproducttype (id, achievement_id, producttype_id)
+            values ('81fe3846-9b10-11ea-bb37-0242ac130002', '973fa838-b92f-4a38-ab7f-56a129b8c4d3',
+            'd6a0ed3a-82b7-4c10-9190-27a737faf454');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-address-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="address"/>
+        </preConditions>
+
+        <sql>
+            insert into address (id, zipcode, publicplace, district, locality, federatedunit, latitude, longitude)
+            values ('c610a5c3-9746-43be-a1e4-5435411b0328', '87050-720', 'Av. Sen. Petrônio Portela 282',
+            'Jardim Aclimacao', 'Maringá', 'PR', -23.4449098, -51.9202928);
+            insert into address (id, zipcode, publicplace, district, locality, federatedunit, latitude, longitude)
+            values ('28fd5d3c-97b2-11ea-bb37-0242ac130002', '87015-001', 'Av. Dr. Luiz Teixeira Mendes 1550', 'Zona 05',
+            'Maringá', 'PR', -23.4353793, -51.9595255);
+            insert into address (id, zipcode, publicplace, district, locality, federatedunit, latitude, longitude)
+            values ('27d20235-837b-48ca-bf67-f0b9f06379b9', '87070-170', 'Av. Virgílio Manilia, 21784',
+            'Jardim Ouro Cola', 'Maringá', 'PR', -23.4129652,-51.9906073);
+            insert into address (id, zipcode, publicplace, district, locality, federatedunit, latitude, longitude)
+            values ('138e7fee-704c-45a6-8516-ac8b10d1e1b5', '87020-190', 'Rua Paranaguá, 78', 'Zona 07',
+            'Maringá', 'PR', -23.4116025, -51.9454643);
+            insert into address (id, zipcode, publicplace, district, locality, federatedunit, latitude, longitude)
+            values ('c2b93999-c7a0-4563-a808-d52985e0cd48', '87020-190', 'Rua Paranaguá, 173', 'Zona 07',
+            'Maringá', 'PR', -23.4109913, -51.9439829);
+            insert into address (id, zipcode, publicplace, district, locality, federatedunit, latitude, longitude)
+            values ('20eb20f8-44a8-4073-a268-bab5dbb82441', '87020-190', 'Rua Paranaguá, 124', 'Zona 07',
+            'Maringá', 'PR', -23.4113064, -51.9435349);
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-partner-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="partner"/>
+        </preConditions>
+
+        <sql>
+            insert into partner(id, address_id, file_id, partnername, description, phonenumber)
+            values('68a0e950-37b8-4f01-9f40-f33fdfbc8720', 'c610a5c3-9746-43be-a1e4-5435411b0328',
+            '6bc0f907-9dc3-4b2a-a0aa-1798e5f37e80', 'Bar do Azeitona', 'Espetinhos, pastéis e caldos, mais cervejas,' ||
+            ' em ponto de encontro simples e descontraído com mesas de sinuca.', '(44) 3026-2015');
+            insert into partner(id, address_id, file_id, partnername, description, phonenumber, avatar_id)
+            values('d0c4238f-a9c9-452b-9c09-315e19d46506', '28fd5d3c-97b2-11ea-bb37-0242ac130002',
+            'ec4fca28-a92f-45f2-ba1b-bbe057c85fb4','Água Doce Cachaçaria',
+            'Lugar charmoso e aconchegante, com porções variadas e deliciosas, segundo nossos clientes, temos o ' ||
+            'melhor escondidinho do Paraná.', '(44) 3225-2918', '2ca9ea86-a770-49d7-b8e9-8d7c46bb576c');
+            insert into partner(id, address_id, file_id, partnername, description, phonenumber, avatar_id)
+            values('9b6e9734-e22c-44da-b6b5-6adb4b3c070e', '138e7fee-704c-45a6-8516-ac8b10d1e1b5',
+            '5ed4aa50-3856-4f8a-94c9-923cc0384a36','Democrático Bar', 'Ótimo bar com inúmeras opções de bebidas.', 
+            '(44) 3346-6511', '906215b4-009d-4a8e-97cf-62cbbb6744e4');
+            insert into partner(id, address_id, file_id, partnername, description, phonenumber, avatar_id)
+            values('312d0e29-be4c-401f-a999-01fe5c8386df', 'c2b93999-c7a0-4563-a808-d52985e0cd48',
+            '29390b84-3ab8-41f2-b00f-f2f37290a5e7','Coronel Zacarias', 'Excelente bar com deliciosas porções e ótimos preços!', 
+            '(44) 3030-1551', 'b4c9dac1-71e7-45de-a147-d4659f6af600');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-partnerproduct-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="partnerproduct"/>
+        </preConditions>
+
+        <sql>
+            insert into partnerproduct(id, partner_id, product_id)
+            values('b552b192-5282-46dd-8afb-f5181464c044', '68a0e950-37b8-4f01-9f40-f33fdfbc8720',
+            'f0e11a71-8ff7-4e61-80b4-de0082665b73');
+            insert into partnerproduct(id, partner_id, product_id)
+            values('cb2e121a-b9fb-4bae-bd17-33c12ab89b2f', 'd0c4238f-a9c9-452b-9c09-315e19d46506',
+            '8f50022f-4058-4f8e-8062-fc0ef9bc327e');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-workingperiod-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="workingperiod"/>
+        </preConditions>
+
+        <sql>
+            insert into workingperiod(id, partner_id, weekday, openingtime, closingtime)
+            values('2436a578-a5da-4557-b9e7-0adf4ac687a4', '68a0e950-37b8-4f01-9f40-f33fdfbc8720', 'Segunda-feira',
+            '17:00:00', '23:00:00');
+            insert into workingperiod(id, partner_id, weekday, openingtime, closingtime)
+            values('ce02bb76-dbc6-4ac3-8e15-467780f0dc1d', '68a0e950-37b8-4f01-9f40-f33fdfbc8720', 'Terça-feira',
+            '17:00:00', '23:00:00');
+            insert into workingperiod(id, partner_id, weekday, openingtime, closingtime)
+            values('fd27c718-dfdb-4085-9432-46457a711e36', '68a0e950-37b8-4f01-9f40-f33fdfbc8720', 'Quarta-feira',
+            '17:00:00', '23:00:00');
+            insert into workingperiod(id, partner_id, weekday, openingtime, closingtime)
+            values('d7364ff3-8239-4e95-a935-14b3ce3e813a', '68a0e950-37b8-4f01-9f40-f33fdfbc8720', 'Quinta-feira',
+            '17:00:00', '23:00:00');
+            insert into workingperiod(id, partner_id, weekday, openingtime, closingtime)
+            values('87897e78-a7d3-4bab-94f4-a1b070956299', '68a0e950-37b8-4f01-9f40-f33fdfbc8720',  'Sexta-feira',
+            '17:00:00', '23:00:00');
+            insert into workingperiod(id, partner_id, weekday, openingtime, closingtime)
+            values('c0ea0ac1-859e-4c60-88ae-6cf980e30d95', '68a0e950-37b8-4f01-9f40-f33fdfbc8720', 'Sábado',
+            '17:00:00', '03:00:00');
+            insert into workingperiod(id, partner_id, weekday, openingtime, closingtime)
+            values('a1bba17e-234f-4d0a-9051-86bd498b064a', 'd0c4238f-a9c9-452b-9c09-315e19d46506', 'Sábado', '17:30:00',
+            '00:30:00');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-person-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="person"/>
+        </preConditions>
+
+        <sql>
+            insert into person (id, username, email, birthdate, userpassword)
+            values ('4ed2ed34-a369-4983-88a5-dc9fc9ad1ed9', 'José da Silva', 'josesilva@gmail.com', '2000-06-20',
+            '$2a$10$QQIsEfEhaaeUa7.FWpeddeLPvAox7rCpznoL4SkiiGSwHTSCrkOL6');
+            insert into person (id, username, email, birthdate, userpassword)
+            values ('d74f3772-5097-44d0-995b-86330adac63c', 'Usuário Teste da Silva', 'allcool@gmail.com', '1998-06-20',
+            '$2a$10$QQIsEfEhaaeUa7.FWpeddeLPvAox7rCpznoL4SkiiGSwHTSCrkOL6');
+            insert into person (id, username, email, birthdate, userpassword)
+            values ('affb9869-61b3-4100-bafd-df7cf46ef341', 'Teste da Silva', 'teste@hotmail.com', '1994-01-01',
+            '$2a$10$JW6eD13HWde0f3ApkqEGRuCkpRlX9I3FkVpxH1thUS6Bt5/FJ.FdS');
+            insert into person (id, username, email, birthdate, userpassword)
+            values ('e3889817-9be4-4d45-960e-e537bfd01fab', 'Mike', 'mike@hotmail.com', '1980-01-01', 'teste2');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-userclient-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="userclient"/>
+        </preConditions>
+
+        <sql>
+            insert into userclient (id, person_id, bio, file_id, location, creationdate)
+            values ('b6b2d26e-1281-4bbf-87f4-572899ccfbc9', '4ed2ed34-a369-4983-88a5-dc9fc9ad1ed9',
+            'José, o maior cervejeiro do Brasil!', '3ef6313a-fa68-4f81-87da-f7984553f90d',
+            'Maringá, Brasil', '2020-06-10');
+
+            insert into userclient (id, person_id, bio, file_id, creationdate)
+            values ('a59c0223-87e4-4b60-8bc1-21f22fbc746d', 'd74f3772-5097-44d0-995b-86330adac63c',
+            'Usuário criado para ambiente de Homologação', '9f87d393-1169-4270-b071-4c88ca35f12a', '2020-06-23');
+
+            insert into userclient (id, person_id, bio, file_id, location, creationdate)
+            values ('3793d49a-01fa-47cc-b762-da24738b750c', 'affb9869-61b3-4100-bafd-df7cf46ef341',
+            'Biografia de Teste da Silva', 'dac0f400-ef91-4fda-9b82-b92f946dbcf8', 'Maringá', '2020-08-16');
+
+            insert into userclient (id, person_id, bio, file_id, location, creationdate)
+            values ('7db7d491-8f37-4bd6-a061-e865f9df4b6a', 'e3889817-9be4-4d45-960e-e537bfd01fab',
+            'Biografia de Mike', '6ba8a088-b83f-46dc-8c0b-c66df295cb86', 'Wonderland', '2020-09-05');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-review-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="review"/>
+        </preConditions>
+
+        <sql>
+            insert into review (id, userclient_id, product_id, file_id, description, rating, creationdate)
+            values('d6353fa6-796e-4fca-aa11-d731633782dd', '3793d49a-01fa-47cc-b762-da24738b750c',
+            'f0e11a71-8ff7-4e61-80b4-de0082665b73', '50853f04-4d88-4a31-9883-448fe0aebbd0', 'É uma cerveja com ' ||
+            'um sabor forte, meu paladar não é tão acostumado com esse tipo, mas gostei mesmo assim da mesma!! ' ||
+            'Recomendo-a às pessoas com um paladar mais acostumado com cervejas fortes', 3.00, '2020-08-25');
+
+            insert into review (id, userclient_id, product_id, description, rating, creationdate)
+            values('1388758d-6a21-4494-a2bf-81f601c5936c', '7db7d491-8f37-4bd6-a061-e865f9df4b6a',
+            'f0e11a71-8ff7-4e61-80b4-de0082665b73', 'Gostei muito dessa ' ||
+            'cerveja, recomendo ela a todos os meus amigos e acredito que essa seja a mais saborosa que já tomei' ||
+            '!! Gosto de apreciá-la com uma tábua de queijos finos, principalmente o Parmesão!!', 4.00, '2020-08-30');
+
+            insert into review (id, userclient_id, product_id, file_id, description, rating, creationdate)
+            values('32d5ee80-131f-439b-b02c-92eb5c0e8f9a', 'b6b2d26e-1281-4bbf-87f4-572899ccfbc9',
+            'f0e11a71-8ff7-4e61-80b4-de0082665b73', '3cc6d0f5-0432-4798-bb08-8605a5b0ba4b', 'Não sou muito fã ' ||
+            'dessa cerveja, mas por recomendações de amigos meus, acabei tomando... Apesar de não gostar tanto ' ||
+            'a experiência de apreciá-la com um queijo brie foi boa ', 2.60, '2020-09-12');
+
+            insert into review (id, userclient_id, product_id, description, rating, creationdate)
+            values('71350ae5-c619-40a6-9324-680954ec0618', 'a59c0223-87e4-4b60-8bc1-21f22fbc746d',
+            'f0e11a71-8ff7-4e61-80b4-de0082665b73', 'Só recomendo essa cerveja, pra quem gosta de comer um bom ' ||
+            'Camembert! A não ser com esse queijo, não recomendo. Mas apesar disso, é uma boa cerveja. ',
+            2.80, '2020-10-23');
+
+            insert into review (id, userclient_id, product_id, file_id, description, rating, creationdate)
+            values('d8942a4c-183a-4261-83ff-6c466e5ced8f', '7db7d491-8f37-4bd6-a061-e865f9df4b6a',
+            '8f50022f-4058-4f8e-8062-fc0ef9bc327e', '682842f8-4001-41a3-82b7-217f7c245375', 'Cerveja muito boa!',
+            5.00, '2020-10-10');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-reviewproductflavor-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="reviewproductflavor"/>
+        </preConditions>
+
+        <sql>
+            insert into reviewproductflavor (id, review_id, description, flavortype)
+            values('c45db5f6-a6ee-4b8e-b470-048f1c7becd1', '71350ae5-c619-40a6-9324-680954ec0618', 'Adocicado',
+            'SWEET');
+            insert into reviewproductflavor (id, review_id, description, flavortype)
+            values('96c8889a-8d57-4ddf-b673-c705d806642c', 'd8942a4c-183a-4261-83ff-6c466e5ced8f', 'Umami', 'UMAMI');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-news-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="news"/>
+        </preConditions>
+
+        <sql>
+            insert into news (id, address_id, file_id, description, rating, creationDate, eventDate, newstype, title)
+            values('3f38c4ad-e953-40bb-b9bb-e1cab7ef37aa', '27d20235-837b-48ca-bf67-f0b9f06379b9',
+            '3a7ffaa5-00e6-426b-968a-4739f31fa114', 'O festival da cerveja artesanal tem como objetivo celebrar a ' ||
+            'cerveja artesanal paranaense em Maringá. O público teve a oportunidade de degustar rótulos de mais de 40 '
+            'cervejarias do estado. Nesta edição esteve presente com uma estrutura para atender e '
+            'mostrar ao publico do evento mais de 200 rótulos de cervejas artesanais.', 4, '2020-08-02',
+            '2020-08-30 19:00:00', 'EVENT', 'Festival da Cerveja Artesanal');
+        </sql>
+    </changeSet>
+
+    <changeSet id="insert-data-publication-v1" author="marcelo.filho" dbms="postgresql">
+        <preConditions onFail="MARK_RAN">
+            <rowCount expectedRows="0" tableName="publication"/>
+        </preConditions>
+
+        <sql>
+            insert into publication (id, review_id, publicationtype, creationdate)
+            values('3f38c4ad-e953-40bb-b9bb-e1cab7ef37aa', '71350ae5-c619-40a6-9324-680954ec0618', 'REVIEW',
+            '2020-10-23');
+            insert into publication (id, review_id, publicationtype, creationdate)
+            values('2e775d81-a0f8-482a-979e-82807d724da5', 'd8942a4c-183a-4261-83ff-6c466e5ced8f', 'REVIEW',
+            '2020-10-10');
+            insert into publication (id, news_id, publicationtype, creationdate)
+            values('2d16a93c-f0e0-49f7-be69-5af8f1f0659e', '3f38c4ad-e953-40bb-b9bb-e1cab7ef37aa', 'NEWS',
+            '2020-08-02');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

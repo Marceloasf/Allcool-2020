@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-partnerproduct" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="partnerproduct"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="partnerproduct">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="partner_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="partnerproduct" columnNames="id" constraintName="partnerproduct_pk"/>
+    </changeSet>
+
+    <changeSet id="add-ptrpdt_partnerid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptrpdt_partnerid_fk" foreignKeyTableName="partnerproduct"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="partnerproduct" baseColumnNames="partner_id"
+                                 constraintName="ptrpdt_partnerid_fk" referencedTableName="partner"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-ptrpdt_productid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptrpdt_productid_fk" foreignKeyTableName="partnerproduct"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="partnerproduct" baseColumnNames="product_id"
+                                 constraintName="ptrpdt_productid_fk" referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

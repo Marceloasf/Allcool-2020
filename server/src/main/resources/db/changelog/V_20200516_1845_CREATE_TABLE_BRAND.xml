@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-brand" author="eduardo.bonam">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="brand"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="brand">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_id" type="uuid"/>
+            <column name="brandname" type="varchar(60)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey tableName="brand" columnNames="id" constraintName="brand_pk"/>
+    </changeSet>
+    <changeSet id="add-bd_fileid_fk" author="eduardo.bonam">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="bd_fileid_fk" foreignKeyTableName="brand"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="brand" baseColumnNames="file_id" constraintName="bn_fileid_fk"
+                                 referencedTableName="file"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: allcool
+    password: allcool
+    initialization-mode: NEVER
+  liquibase:
+    contexts: test
+    parameters:
+      schema: allcool
+  security:
+    basic:
+      enabled: false

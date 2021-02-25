@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="add-column-creationdate-achievement" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="achievement" columnName="creationdate"/>
+            </not>
+        </preConditions>
+
+        <addColumn tableName="achievement">
+            <column name="creationdate" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="add-column-creationdate-userclient" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="userclient" columnName="creationdate"/>
+            </not>
+        </preConditions>
+
+        <addColumn tableName="userclient">
+            <column name="creationdate" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="add-column-creationdate-review" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="review" columnName="creationdate"/>
+            </not>
+        </preConditions>
+
+        <addColumn tableName="review">
+            <column name="creationdate" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="add-column-creationdate-publication" author="marcelo.filho">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists tableName="publication" columnName="creationdate"/>
+            </not>
+        </preConditions>
+
+        <addColumn tableName="publication">
+            <column name="creationdate" type="date">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

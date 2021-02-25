@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: allcool-api
+  main:
+    allow-bean-definition-overriding: true
+  liquibase:
+    change-log: classpath:/db/db.changelog-master.xml
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: false
+    properties:
+      hibernate:
+        use-new-id-generator-mappings: false
+        jdbc.lob.non_contextual_creation: true
+
+server:
+  port: 8080

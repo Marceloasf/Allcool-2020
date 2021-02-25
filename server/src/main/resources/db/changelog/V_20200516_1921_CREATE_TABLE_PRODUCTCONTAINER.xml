@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-productcontainer" author="eduardo.bonam">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="productcontainer"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="productcontainer">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="product_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="container_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="productcontainer" columnNames="id" constraintName="productcontainer_pk"/>
+    </changeSet>
+    <changeSet id="add-ptcn_productid_fk" author="eduardo.bonam">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptcn_productid_fk" foreignKeyTableName="productcontainer"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="productcontainer" baseColumnNames="product_id" constraintName="ptcn_productid_fk" referencedTableName="product"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="add-ptcn_containerid_fk" author="eduardo.bonam">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptcn_containerid_fk" foreignKeyTableName="productcontainer"/>
+            </not>
+        </preConditions>
+        <addForeignKeyConstraint baseTableName="productcontainer" baseColumnNames="container_id" constraintName="ptcn_containerid_fk" referencedTableName="container"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

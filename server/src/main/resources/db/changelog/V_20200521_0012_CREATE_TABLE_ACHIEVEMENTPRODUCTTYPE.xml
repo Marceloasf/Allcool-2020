@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-achievementproducttype" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="achievementproducttype"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="achievementproducttype">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="achievement_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="producttype_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="achievementproducttype" columnNames="id" constraintName="achievementproducttype_pk"/>
+    </changeSet>
+
+    <changeSet id="add-ap_achievementid_fk" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ap_achievementid_fk" foreignKeyTableName="achievementproducttype"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="achievementproducttype" baseColumnNames="achievement_id"
+                                 constraintName="ap_achievementid_fk" referencedTableName="achievement"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="add-ap_producttypeid_fk" author="thiago.bussola">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ap_producttypeid_fk" foreignKeyTableName="achievementproducttype"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="achievementproducttype" baseColumnNames="producttype_id"
+                                 constraintName="ap_producttypeid_fk" referencedTableName="producttype"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+</databaseChangeLog>

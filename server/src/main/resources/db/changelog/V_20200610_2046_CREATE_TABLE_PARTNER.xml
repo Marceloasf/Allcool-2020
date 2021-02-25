@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-partner" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="partner"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="partner">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="address_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="file_id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+            <column name="partnername" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phonenumber" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey tableName="partner" columnNames="id" constraintName="partner_pk"/>
+    </changeSet>
+
+    <changeSet id="add-ptr_addressid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptr_addressid_fk" foreignKeyTableName="partner"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="partner" baseColumnNames="address_id"
+                                 constraintName="ptr_addressid_fk" referencedTableName="address"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+
+    <changeSet id="add-ptr_fileid_fk" author="pedro.lobato">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptr_fileid_fk" foreignKeyTableName="partner"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="partner" baseColumnNames="file_id"
+                                 constraintName="ptr_fileid_fk" referencedTableName="file"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+    
+     <changeSet id="add_avatar_partner" author="gabriel.hempel">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <columnExists columnName="avatar_id" tableName="partner"/>
+            </not>
+        </preConditions>
+
+		<addColumn tableName="partner">
+			<column name="avatar_id" type="uuid"></column>
+		</addColumn>
+
+    </changeSet>
+    
+    <changeSet id="add-ptr_avatarid_fk" author="gabriel_hempel">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="ptr_avatarid_fk" foreignKeyTableName="partner"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="partner" baseColumnNames="avatar_id"
+                                 constraintName="ptr_avatarid_fk" referencedTableName="file"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+    
+
+</databaseChangeLog>
