@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-// Must add S3 application properties to work properly
+// Must add S3 application properties to work properly and add credentials on line 32
 @Configuration
 public class S3BucketConfig {
 
@@ -29,9 +29,9 @@ public class S3BucketConfig {
     @Bean
     public AmazonS3 createAmazonS3() {
 
-        AWSCredentials credentials = new BasicAWSCredentials("SCWFQ105Z1KRPBWD8NGQ", "930ee515-d107-45f9-b8ab-6cfcc957f245");
+        AWSCredentials credentials = new BasicAWSCredentials("", "");
 
         return AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://s3.fr-par.scw.cloud/", "fr-par")).build();
+                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("", "")).build();
     }
 }
