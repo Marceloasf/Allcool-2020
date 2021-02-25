@@ -24,10 +24,3 @@ spring:
     multipart:
       max-file-size: 1MB
       max-request-size: 1MB
-s3:
-  credentials:
-    accessKey: SCWFQ105Z1KRPBWD8NGQ
-    secretKey: 930ee515-d107-45f9-b8ab-6cfcc957f245
-  endpoint: https://s3.fr-par.scw.cloud/
-  region: fr-par
-  baseUrl: https://allcool.s3.fr-par.scw.cloud/
