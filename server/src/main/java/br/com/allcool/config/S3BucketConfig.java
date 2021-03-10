@@ -29,7 +29,7 @@ public class S3BucketConfig {
     @Bean
     public AmazonS3 createAmazonS3() {
 
-        AWSCredentials credentials = new BasicAWSCredentials("", "");
+        AWSCredentials credentials = new BasicAWSCredentials("KEY", "UUID_KEY");
 
         return AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("", "")).build();
