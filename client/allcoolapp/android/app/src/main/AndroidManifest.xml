@@ -15,7 +15,7 @@
 
       <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="KEY-HERE"/>
+        android:value="KEY_HERE"/>
 
       <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 
